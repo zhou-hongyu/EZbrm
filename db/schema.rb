@@ -11,10 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203004228) do
+ActiveRecord::Schema.define(version: 20140203010710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "competitions", force: true do |t|
+    t.text    "name"
+    t.text    "category"
+    t.integer "store_id"
+    t.integer "startup_id"
+  end
+
+  add_index "competitions", ["startup_id"], name: "index_competitions_on_startup_id", using: :btree
+  add_index "competitions", ["store_id"], name: "index_competitions_on_store_id", using: :btree
+
+  create_table "cooperations", force: true do |t|
+    t.text    "name"
+    t.text    "category"
+    t.string  "store"
+    t.string  "references"
+    t.integer "startup_id"
+  end
+
+  add_index "cooperations", ["startup_id"], name: "index_cooperations_on_startup_id", using: :btree
+
+  create_table "startups", force: true do |t|
+    t.text    "name"
+    t.text    "url"
+    t.text    "category"
+    t.integer "user_id"
+    t.text    "address"
+  end
+
+  add_index "startups", ["user_id"], name: "index_startups_on_user_id", using: :btree
+
+  create_table "stores", force: true do |t|
+    t.text "name"
+    t.text "category"
+    t.text "address"
+    t.text "url"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
