@@ -4,5 +4,7 @@
 <%= form_for @startup do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
-	<%= f.submit value="Create Student" %>
+	<%= f.label :category %>
+	<%= f.text_field :category %>
+	<%= f.submit value="Create Startup" %>
 <% end %>

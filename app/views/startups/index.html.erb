@@ -1,2 +1,9 @@
 <h1>Startups#index</h1>
 <p>Find me in app/views/startups/index.html.erb</p>
+
+<% @startups.each do |startup| %>
+	<%= startup.name %>
+	<%= startup.category %>
+<% end %>
+
+<h3><%= link_to "Create startup", new_startup_path %></h3>
