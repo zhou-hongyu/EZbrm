@@ -3,10 +3,12 @@ EZBrm::Application.routes.draw do
   resources :stores
   resources :cooperations
   resources :competitions
-  devise_for :users do
-    resources :startups
-  end
-  root :to => "startups#index"
+  devise_for :users
+  resources :startups
+  
+
+
+  root :to => "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

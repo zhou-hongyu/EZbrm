@@ -15,7 +15,7 @@ class CooperationsController < ApplicationController
   	redirect_to :back
   end
 
-  private 
+  private
 
   def cooperation_params
 
