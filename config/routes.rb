@@ -1,11 +1,9 @@
 EZBrm::Application.routes.draw do
 
-  resources :stores
-  resources :cooperations
-  resources :competitions
+
   devise_for :users
-  resources :startups
-  
+
+
 
 
   root :to => "home#index"
