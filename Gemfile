@@ -6,6 +6,8 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'pry-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -39,6 +41,14 @@ end
 
 gem 'devise'
 
+gem 'geocoder'
+
+gem 'yelpster'
+
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'nifty-generators'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -50,3 +60,5 @@ gem 'devise'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem "mocha", group: :test
