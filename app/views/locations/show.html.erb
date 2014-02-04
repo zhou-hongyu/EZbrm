@@ -1,24 +1,17 @@
-<% title "Location" %>
-
+<p><%= link_to "Back to List", locations_path %></p>
 <p>
   <strong>Address:</strong>
   <%= @location.address %>
-</p>
-<p>
-  <strong>Latitude:</strong>
-  <%= @location.latitude %>
-</p>
-<p>
-  <strong>Longitude:</strong>
-  <%= @location.longitude %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= @location.user %>
+  <%= @location.category %>
 </p>
 
-<p>
-  <%= link_to "Edit", edit_location_path(@location) %> |
-  <%= link_to "Destroy", @location, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", locations_path %>
-</p>
+<% @stores.each do |store| %>
+  <% if store["review_count"] >= 5 %>
+    <%= link_to store["name"], store["url"] %></br>
+    <img src='<%= store["image_url"] %>'></br>
+    <p>Category: <%= store["categories"][0][0] %></br>
+    <p>Review count: <%= store["review_count"] %></p>
+    <%= link_to "Write review"  %></br></br>
+  <% end %>
+<% end %>
+

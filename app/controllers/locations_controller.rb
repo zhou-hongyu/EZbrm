@@ -1,10 +1,28 @@
 class LocationsController < ApplicationController
+
   def index
     @locations = Location.all
   end
 
   def show
     @location = Location.find(params[:id])
+    client = Yelp::Client.new
+    category = @location.category
+    latitude = @location.latitude
+    longitude = @location.longitude
+
+    request = Yelp::V2::Search::Request::GeoPoint.new(
+             :term => category,
+             :latitude => latitude,
+             :longitude => longitude)
+    response = client.search(request)
+    @stores = response["businesses"]
+
+    @stores.each do |store|
+      @competitor = Competitor.new
+      @competitor.name = store["name"]
+      @location.competitors << @competitor
+    end
   end
 
   def new
@@ -38,4 +56,12 @@ class LocationsController < ApplicationController
     @location.destroy
     redirect_to locations_url, :notice => "Successfully destroyed location."
   end
+
+  private
+
+  def competitors_params
+    params.require(:competitor).permit(:name)
+
+  end
+
 end
