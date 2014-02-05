@@ -39,6 +39,8 @@ group :development do
   gem 'binding_of_caller'
 end
 
+gem 'rails_12factor', group: :production
+
 gem 'devise'
 
 gem 'geocoder'
@@ -64,3 +66,5 @@ gem 'protected_attributes'
 # gem 'debugger', group: [:development, :test]
 
 gem "mocha", group: :test
+
+ruby "2.0.0"
