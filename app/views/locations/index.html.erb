@@ -1,12 +1,14 @@
-
 <table>
   <tr>
+    <th>Name</th>
     <th>Address</th>
+    <th>category</th>
   </tr>
-  <% for location in @locations %>
+  <% for location in current_user.locations %>
     <tr>
+      <td><%= location.name %></td>
       <td><%= location.address %></td>
-      <td><%= location.user %></td>
+      <td><%= location.category %></td>
       <td><%= link_to "Show", user_location_path(current_user.id, location) %></td>
       <td><%= link_to "Edit", edit_user_location_path(current_user.id, location) %></td>
       <td><%= link_to "Destroy", user_location_path(current_user, location), :confirm => 'Are you sure?', :method => :delete %></td>
@@ -14,4 +16,5 @@
   <% end %>
 </table>
 
-<p><%= link_to "New Location", (current_user) %></p>
+<p><%= link_to "Create a new startup!", new_user_location_path(current_user.id) %></p>
+

@@ -52,7 +52,7 @@ class LocationsController < ApplicationController
   def update
     @location = Location.find(params[:id])
     if @location.update_attributes(params[:location])
-      redirect_to @location, :notice  => "Successfully updated location."
+      redirect_to current_user, :notice  => "Successfully updated location."
     else
       render :action => 'edit'
     end
@@ -65,16 +65,7 @@ class LocationsController < ApplicationController
   end
 
   private
-
-  def locations_params
-    params.require(:locaitons).permit(:name, :address, :latitude, :longitude)
-  end
-
-  def competitors_params
-    params.require(:competitor).permit(:name)
-
-  end
-
+  
   def get_user
     @user = User.find(params[:user_id]) if params.key?(:user_id)
   end
