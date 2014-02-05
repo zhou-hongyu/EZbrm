@@ -1,13 +1,15 @@
 EZBrm::Application.routes.draw do
 
-
-  resources :locations
   devise_for :users
 
+  resources :users do
+    resources :locations do
+      resources :competitors
+    end
+  end
 
-
-
-  root :to => "home#index"
+  # get 'users' => 'users#show', :as => 'user_root'
+  root :to => "users#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

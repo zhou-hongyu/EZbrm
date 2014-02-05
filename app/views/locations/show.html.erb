@@ -1,16 +1,16 @@
-<p><%= link_to "Back to List", locations_path %></p>
+<p><%= link_to "Back to List", user_locations_path %></p>
 <p>
   <strong>Address:</strong>
   <%= @location.address %>
   <%= @location.category %>
 </p>
 
-<% @stores.each do |store| %>
-  <% if store["review_count"] >= 5 %>
-    <%= link_to store["name"], store["url"] %></br>
-    <img src='<%= store["image_url"] %>'></br>
-    <p>Category: <%= store["categories"][0][0] %></br>
-    <p>Review count: <%= store["review_count"] %></p>
+<% @location.competitors.each do |competitor| %>
+  <% if competitor.review_count >= 5 %>
+    <%= link_to competitor.name, competitor.url %></br>
+    <img src='<%= competitor.image_url %>'></br>
+    <p>Category: <%= competitor.category %></br>
+    <p>Review count: <%= competitor.review_count %></p>
     <%= link_to "Write review"  %></br></br>
   <% end %>
 <% end %>

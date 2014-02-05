@@ -1,4 +1,13 @@
+<%= form_for [@user, @location] do |f| %>
 
-<%= render 'form' %>
+  <p>
+    <%= f.label :name %></br>
+    <%= f.text_field :name %></br>
+    <%= f.label :category %></br>
+    <%= f.text_field :category %></br>
+    <%= f.label :address %></br>
+    <%= f.text_field :address %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
 
-<p><%= link_to "Back to List", locations_path %></p>
