@@ -3,7 +3,7 @@ body{
 	background: url("http://www.hdwallpaperstop.com/wp-content/uploads/2013/09/Black-background-HD-Wallpapers.jpg");
   background-size: cover;
   background-position: center;
-  color: white;
+  color: grey;
   font-family: helvetica;
 }
 h1{
@@ -16,9 +16,9 @@ h2{
 	padding-left: 150px;
 }
 
-p{
+p {
 	text-align: left;
-	padding: 0px 200px 0px 200px;
+	padding: 0px 0px 0px 0px;
 }
 img{
   border: 3px solid white;
@@ -31,4 +31,39 @@ img{
 
 #list {
 	color: yellow;
+}
+
+th, td {
+  width: 200px;
+  text-align: left;
+}
+
+.long {
+  width: 250px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.margin-left{
+  margin-left: 150px;
+}
+
+.user-table {
+  font-size: 20px;
+  margin-left: 180px;
+  color: white;
+  margin-top: 20px;
+}
+label {
+  color: white;
+}
+
+.text-white {
+  color: white;
+}
+
+.margin-top {
+  margin-top: 30px;
 }

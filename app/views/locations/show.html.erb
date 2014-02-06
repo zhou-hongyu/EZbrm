@@ -1,48 +1,28 @@
 <style>
-  
+
 </style>
+<div class="container">
+<button type="button" class="btn btn-default btn-lg"><%= link_to "Back to Startup List", user_locations_path %>
+</button>
 
-<p style="font-size:25px;"><%= link_to "Back to Startup List", user_locations_path %></p>
-
-<div style="font-size:25px;">
-
-  <div class="row">
-    <div class="col-md-4" >
-      <% @location.competitors.each do |competitor| %>
-        <% if competitor.review_count >= 5 %>
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-leaf"></span><%= link_to competitor.name, competitor.url %>
-          </button>
-  
-          <img src='<%= competitor.image_url %>'></br>
-          <p style="font-size:15px;">Category: <%= competitor.category %></br>
-          <p style="font-size:15px;">Review count: <%= competitor.review_count %></p></br>
+  <div class="row text-white">
+        <% @location.competitors.each do |competitor| %>
+          <% if competitor.review_count >= 50 %>
+            <div class="col-xs-6 col-sm-6 col-md-6 margin-top" >
+              <div class="col-xs-3 col-sm-3 col-md-3" >
+                <img src='<%= competitor.image_url %>'>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4" >
+                <button type="button" class="btn btn-default btn-md">
+                <span class="glyphicon glyphicon-leaf"></span> <%= link_to competitor.name, competitor.url %>
+                </button>
+              </div>
+              <div class="col-xs-5 col-sm-5 col-md-5" >
+                <p style="font-size:15px;">Category: <%= competitor.category %></p>
+                <p style="font-size:15px;">Review count: <%= competitor.review_count %></p></br>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-
-    <div class="col-md-4">
-      <% @location.competitors.each do |competitor| %>
-        <% if competitor.review_count >= 5 %>
-          <%= link_to competitor.name, competitor.url %></br>
-          <img src='<%= competitor.image_url %>'></br>
-          <p style="font-size:15px;">Category: <%= competitor.category %></br>
-          <p style="font-size:15px;">Review count: <%= competitor.review_count %></p></br>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="col-md-4">
-      <% @location.competitors.each do |competitor| %>
-        <% if competitor.review_count >= 5 %>
-          <%= link_to competitor.name, competitor.url %></br>
-          <img src='<%= competitor.image_url %>'></br>
-          <p style="font-size:15px;">Category: <%= competitor.category %></br>
-          <p style="font-size:15px;">Review count: <%= competitor.review_count %></p></br>
-        <% end %>
-      <% end %>
-    </div>
-
   </div>
 </div>

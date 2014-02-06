@@ -1,3 +1,4 @@
+# This represents your startup
 class Location < ActiveRecord::Base
   attr_accessible :address, :latitude, :longitude, :category, :name
   geocoded_by :address

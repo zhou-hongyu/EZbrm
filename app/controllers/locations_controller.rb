@@ -1,3 +1,4 @@
+# This is the main controller for our Locations of the startups
 class LocationsController < ApplicationController
   before_action :get_user
   def index

@@ -1,5 +1,5 @@
 <%= form_for [@user, @location] do |f| %>
-
+<div class="container" style="margin-left:163px">
   <p>
     <%= f.label :name %></br>
     <%= f.text_field :name %></br>
@@ -9,4 +9,5 @@
     <%= f.text_field :address %>
   </p>
   <p><%= f.submit %></p>
+</div>
 <% end %>
