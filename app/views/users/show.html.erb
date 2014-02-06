@@ -1,22 +1,38 @@
-Manage
-
+<link href="style.css" rel="stylesheet">
 
 <table>
-  <tr>
-  	<th>Name</th>
-    <th>Address</th>
-    <th>category</th>
-  </tr>
-  <% for location in current_user.locations %>
-    <tr>
-      <td><%= location.name %></td>
-      <td><%= location.address %></td>
-      <td><%= location.category %></td>
-      <td><%= link_to "Show", user_location_path(current_user.id, location) %></td>
-      <td><%= link_to "Edit", edit_user_location_path(current_user.id, location) %></td>
-      <td><%= link_to "Destroy", user_location_path(current_user, location), :confirm => 'Are you sure?', :method => :delete %></td>
+    <tr style="font-size:25px;">
+      <th>Name</th>
+      <th>Address</th>
+      <th>category</th>
     </tr>
+  </div>
+
+  <% for location in current_user.locations %>
+      <tr style="font-size:25px;">
+        <td><%= location.name %></td>
+        <td><%= location.address %></td>
+        <td><%= location.category %></td>
+        <td>
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-star"></span> <%= link_to "Show", user_location_path(current_user.id, location) %>
+          </button>
+        </td>
+
+        <td>
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-star"></span> <%= link_to "Edit", edit_user_location_path(current_user.id, location) %>
+          </button>
+        </td>
+
+        <td>
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-star"></span> <%= link_to "Destroy", user_location_path(current_user, location), :confirm => 'Are you sure?', :method => :delete %>
+          </button>
+        </td>
+      </tr>
+    </div>
   <% end %>
 </table>
 
-<p><%= link_to "Create a new startup!", new_user_location_path(current_user.id) %></p>
+<p style="font-size:25px;"><%= link_to "Create a new startup!", new_user_location_path(current_user.id) %></p>

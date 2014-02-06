@@ -4,4 +4,6 @@ class Location < ActiveRecord::Base
   after_validation :geocode, :if => :address_changed?
   belongs_to :user
   has_many :competitors
+
+  # Add some validations here
 end

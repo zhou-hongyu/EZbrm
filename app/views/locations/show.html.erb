@@ -1,17 +1,48 @@
-<p><%= link_to "Back to Startup List", user_locations_path %></p>
-<p>
-  <strong>Address:</strong>
-  <%= @location.address %>
-  <%= @location.category %>
-</p>
+<style>
+  
+</style>
 
-<% @location.competitors.each do |competitor| %>
-  <% if competitor.review_count >= 5 %>
-    <%= link_to competitor.name, competitor.url %></br>
-    <img src='<%= competitor.image_url %>'></br>
-    <p>Category: <%= competitor.category %></br>
-    <p>Review count: <%= competitor.review_count %></p>
-    <%= link_to "Write review"  %></br></br>
-  <% end %>
-<% end %>
+<p style="font-size:25px;"><%= link_to "Back to Startup List", user_locations_path %></p>
 
+<div style="font-size:25px;">
+
+  <div class="row">
+    <div class="col-md-4" >
+      <% @location.competitors.each do |competitor| %>
+        <% if competitor.review_count >= 5 %>
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-leaf"></span><%= link_to competitor.name, competitor.url %>
+          </button>
+  
+          <img src='<%= competitor.image_url %>'></br>
+          <p style="font-size:15px;">Category: <%= competitor.category %></br>
+          <p style="font-size:15px;">Review count: <%= competitor.review_count %></p></br>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <% @location.competitors.each do |competitor| %>
+        <% if competitor.review_count >= 5 %>
+          <%= link_to competitor.name, competitor.url %></br>
+          <img src='<%= competitor.image_url %>'></br>
+          <p style="font-size:15px;">Category: <%= competitor.category %></br>
+          <p style="font-size:15px;">Review count: <%= competitor.review_count %></p></br>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <% @location.competitors.each do |competitor| %>
+        <% if competitor.review_count >= 5 %>
+          <%= link_to competitor.name, competitor.url %></br>
+          <img src='<%= competitor.image_url %>'></br>
+          <p style="font-size:15px;">Category: <%= competitor.category %></br>
+          <p style="font-size:15px;">Review count: <%= competitor.review_count %></p></br>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

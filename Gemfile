@@ -66,5 +66,4 @@ gem 'protected_attributes'
 # gem 'debugger', group: [:development, :test]
 
 gem "mocha", group: :test
-
-ruby "2.0.0"
+gem 'bootstrap-sass', '~> 3.1.0'

@@ -1,0 +1,34 @@
+body{
+	text-align: center;
+	background: url("http://www.hdwallpaperstop.com/wp-content/uploads/2013/09/Black-background-HD-Wallpapers.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: helvetica;
+}
+h1{
+	text-align: left;
+	padding-left: 150px;
+}
+
+h2{
+	text-align: left;
+	padding-left: 150px;
+}
+
+p{
+	text-align: left;
+	padding: 0px 200px 0px 200px;
+}
+img{
+  border: 3px solid white;
+  border-radius: 20px;
+}
+
+#container {
+	color: black;
+}
+
+#list {
+	color: yellow;
+}
