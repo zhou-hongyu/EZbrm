@@ -15,29 +15,7 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.create!(params[:location])
-    client = Yelp::Client.new
-    category = @location.category
-    latitude = @location.latitude
-    longitude = @location.longitude
-
-    request = Yelp::V2::Search::Request::GeoPoint.new(
-             :term => category,
-             :latitude => latitude,
-             :longitude => longitude)
-    response = client.search(request)
-    @stores = response["businesses"]
-
-    @stores.each do |store|
-
-      @competitor = Competitor.new
-      @competitor.name = store["name"]
-      @competitor.review_count = store["review_count"]
-      @competitor.url = store["url"]
-      @competitor.image_url = store["image_url"]
-      @competitor.category = store["categories"][0][0]
-      @competitor.save!
-      @location.competitors << @competitor
-    end
+    @location.get_info
     current_user.locations << @location
     if @location.save
       redirect_to current_user, :notice => "Successfully created location."
@@ -52,6 +30,7 @@ class LocationsController < ApplicationController
 
   def update
     @location = Location.find(params[:id])
+    @location.get_info
     if @location.update_attributes(params[:location])
       redirect_to current_user, :notice  => "Successfully updated location."
     else
