@@ -55,8 +55,26 @@
         null,
         null,
         null
+      ],
+      "/Users/nevermore/Code/EZ-BRM/app/controllers/users_controller.rb": [
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/nevermore/Code/EZ-BRM/app/controllers/application_controller.rb": [
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null
       ]
     },
-    "timestamp": 1392345968
+    "timestamp": 1392347190
   }
 }
